@@ -52,21 +52,5 @@ func (c *Calculator) CalculatePacks(amount int) (map[int]int, error) {
 	}
 
 	return packsMap, nil
-	// i := len(c.packSizes) - 1
-	// for {
-	// 	if c.packSizes[i] <= amount {
-	// 		packsMap[c.packSizes[i]]++
-	// 		amount -= c.packSizes[i]
-	// 	} else {
-	// 		i--
-	// 	}
-	// 	if amount == 0 {
-	// 		return packsMap, nil
-	// 	}
-	// 	if i == 0 && amount < c.packSizes[0] {
-	// 		packsMap[c.packSizes[0]]++
-	// 		return packsMap, nil
-	// 	}
-	// }
 
 }
