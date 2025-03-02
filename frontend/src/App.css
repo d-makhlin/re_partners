@@ -1,0 +1,165 @@
+/* App.css */
+
+/* General Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f7f8fc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.title {
+  font-size: 2rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Input Container */
+.input-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.input-field {
+  padding: 10px;
+  width: 75%;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+/* Remove the up and down arrows from number inputs */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.input-field:focus {
+  border-color: #4CAF50;
+}
+
+.add-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.add-btn:hover {
+  background-color: #45a049;
+}
+
+/* List of Numbers */
+.list-container {
+  margin-bottom: 20px;
+}
+
+.number-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fafafa;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.number {
+  font-size: 18px;
+  color: #333;
+}
+
+.delete-btn {
+  color: #ff4d4f;
+  font-size: 20px;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+.delete-btn:hover {
+  color: #d43f3a;
+}
+
+/* Target Input */
+.input-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px; /* Ensure it's a bit separated from the list */
+}
+
+.submit-container {
+  text-align: center;
+}
+
+.submit-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+}
+
+.result-container {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+}
+
+.result-container h3 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.result-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.result-item {
+  background: #e9ecef;
+  margin: 5px 0;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 16px;
+}
