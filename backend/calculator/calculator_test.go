@@ -8,11 +8,11 @@ import (
 
 func TestCalculatorSuccess(t *testing.T) {
 	// test happy case
-	c := NewCalculator([]int{})
+	c := NewCalculator([]int{23, 31, 53})
 
-	sizes, err := c.CalculatePacks(0)
+	sizes, err := c.CalculatePacks(500000)
 	assert.NoError(t, err)
-	assert.Equal(t, sizes, map[int]int{})
+	assert.Equal(t, sizes, map[int]int{23: 2, 31: 7, 53: 9429})
 }
 
 func TestSetNegativeSizes(t *testing.T) {
@@ -21,7 +21,7 @@ func TestSetNegativeSizes(t *testing.T) {
 	c := NewCalculator([]int{})
 
 	err := c.SetPackSizes([]int{-1, 100, 200})
-	assert.EqualError(t, err, "")
+	assert.EqualError(t, err, "all sizes should be positive, -1 is not")
 }
 
 func TestFilterRepeatedPackSizes(t *testing.T) {
@@ -77,5 +77,5 @@ func TestNoPacks(t *testing.T) {
 	c := NewCalculator([]int{200, 300, 500})
 
 	_, err := c.CalculatePacks(0)
-	assert.EqualError(t, err, "")
+	assert.EqualError(t, err, "The amount should be positive, 0 is not")
 }
