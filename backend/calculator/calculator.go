@@ -20,6 +20,9 @@ func NewCalculator(packSizes []int) *Calculator {
 func (c *Calculator) SetPackSizes(packSizes []int) error {
 	// Update the packs' sizes
 
+	if len(packSizes) == 0 {
+		return fmt.Errorf("You should provide pack sizes")
+	}
 	sizes := []int{}
 	for _, elem := range packSizes {
 		if elem <= 0 {
