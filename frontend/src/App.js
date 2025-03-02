@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 const App = () => {
@@ -6,6 +6,10 @@ const App = () => {
   const [currentNumber, setCurrentNumber] = useState('');
   const [target, setTarget] = useState('');
   const [calculationResult, setCalculationResult] = useState(null);
+
+  useEffect(() => {
+    setNumbers([250, 500, 1000, 2000, 5000]);
+  }, []);
 
   const handleAddNumber = () => {
     if (currentNumber) {
@@ -20,18 +24,18 @@ const App = () => {
 
   const handleSubmit = async () => {
     const requestData = {
-      numbers: numbers, // The list of numbers
-      target: parseInt(target),  // The target value
+      numbers: numbers,
+      target: parseInt(target),
     };
     try {
       const response = await fetch('http://localhost:8080/calculate', {
-      method: 'POST', 
-      headers: {
-        'Content-Type': 'application/json', 
-      },
-      body: JSON.stringify(requestData), 
-    });;
-      const data = await response.json()
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestData),
+      });
+      const data = await response.json();
       setCalculationResult(data);
     } catch (error) {
       console.error('Error sending numbers to backend', error);
@@ -50,9 +54,7 @@ const App = () => {
           onChange={(e) => setCurrentNumber(e.target.value)}
           placeholder="Add a pack size"
         />
-        <button className="add-btn" onClick={handleAddNumber}>
-          Add
-        </button>
+        <button className="add-btn" onClick={handleAddNumber}>Add</button>
       </div>
 
       <div className="list-container">
@@ -82,17 +84,17 @@ const App = () => {
 
       {/* Display the result */}
       {calculationResult && typeof calculationResult === 'object' && (
-      <div className="result-container">
-        <h3>Calculation Result:</h3>
-        <ul className="result-list">
-          {Object.entries(calculationResult).map(([number, count]) => (
-            <li key={number} className="result-item">
-              Pack Size: <strong>{number}</strong> → Used: <strong>{count} times</strong>
-            </li>
-          ))}
-        </ul>
-      </div>
-    )}
+        <div className="result-container">
+          <h3>Calculation Result:</h3>
+          <ul className="result-list">
+            {Object.entries(calculationResult).map(([number, count]) => (
+              <li key={number} className="result-item">
+                Pack Size: <strong>{number}</strong> → Used: <strong>{count} times</strong>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 };
